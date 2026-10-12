@@ -26,10 +26,13 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 // Helper to parse hash and extract route path + query params
 const parseHashRoute = (rawHash: string): { path: string; params?: Record<string, string> } => {
-  const hash = rawHash.replace(/^#/, '');
-  if (!hash || hash === '/') return { path: '/' };
+  let target = rawHash.replace(/^#/, '');
+  if ((!target || target === '/') && typeof window !== 'undefined' && window.location.pathname && window.location.pathname !== '/') {
+    target = window.location.pathname;
+  }
+  if (!target || target === '/') return { path: '/' };
 
-  const [pathWithSlug, queryString] = hash.split('?');
+  const [pathWithSlug, queryString] = target.split('?');
   const queryParams: Record<string, string> = {};
   if (queryString) {
     const searchParams = new URLSearchParams(queryString);
