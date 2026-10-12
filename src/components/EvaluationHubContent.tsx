@@ -57,13 +57,13 @@ export const EvaluationHubContent: React.FC = () => {
       name: "榴莲云",
       logo: "/images/liulianyun-logo.png",
       badge: "平价天花板",
-      highlight: "IEPL专线低价小流量首选，入门档年付折合仅5.6元/月，60个VLESS节点实测覆盖港台新美日，支持自研与第三方客户端",
+      highlight: "IEPL专线低价小流量首选，入门档年付96元（折合8元/月，60GB/月，特惠版不适用优惠券），常规套餐季付及以上享专属7折优惠码ll88，60个VLESS节点实测覆盖港台新美日",
       lineType: "IEPL内网专线 / VLESS协议",
-      priceDesc: "年付折合约5.6元/月（60GB/月）",
+      priceDesc: "96元/年 60GB/月（折合8元/月）",
       url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN",
       reviewSlug: "liulianyun-airport-review",
-      tags: ["低至5.6元/月", "IEPL专线", "季付折扣券ll88", "60个节点"],
-      features: ["季付起专属优惠券ll88享7折", "入门档年付折合约5.6元/60GB每月", "60个VLESS节点覆盖港台新美日", "支持自研客户端与Clash/小火箭"]
+      tags: ["8元月均", "IEPL专线", "季付折扣券ll88", "60个节点"],
+      features: ["季付起专属优惠券ll88享7折（96年付不可用）", "入门档年付96元（折合8元/60GB每月）", "60个VLESS节点覆盖港台新美日", "支持自研客户端与Clash/小火箭"]
     },
     {
       name: "大佬云",
@@ -81,13 +81,13 @@ export const EvaluationHubContent: React.FC = () => {
       name: "环球梯",
       logo: "/images/huanqiuti-logo.png",
       badge: "7折码HQ66",
-      highlight: "全节点VLESS协议与纯专线高速通道，晚高峰丢包率<0.5%，60个节点实测非零率96.7%，专享7折优惠码HQ66",
+      highlight: "全节点VLESS协议与纯专线高速通道，晚高峰丢包率<0.5%，60个节点实测非零率96.7%，专享7折优惠码HQ66（96年付特惠版除外）",
       lineType: "纯专线端内直连 / VLESS协议",
-      priceDesc: "96元/年 60GB/月（7折后折合5.6元/月）",
+      priceDesc: "96元/年 60GB/月（折合8元/月）",
       url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG",
       reviewSlug: "huanqiuti-airport-review",
-      tags: ["7折券HQ66", "VLESS专线", "60个节点", "低丢包率"],
-      features: ["专属7折优惠券HQ66（年付折合5.6元/月）", "60个VLESS节点实测96.7%可用", "提供99元/80GB不限时按量套餐", "端内物理专线不经过GFW"]
+      tags: ["7折券HQ66", "8元月均", "60个节点", "低丢包率"],
+      features: ["专属7折优惠券HQ66（96年付特惠版不适用）", "60个VLESS节点实测96.7%可用", "提供99元/80GB不限时按量套餐", "端内物理专线不经过GFW"]
     },
     {
       name: "云界线",

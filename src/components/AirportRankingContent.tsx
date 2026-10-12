@@ -52,8 +52,8 @@ export const AirportRankingContent: React.FC = () => {
       name: "榴莲云", 
       logo: "/images/liulianyun-logo.png",
       url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", 
-      trial: "季付起专属7折优惠券（码：ll88）", 
-      price: "年付约5.6元/60GB每月（平价首选）", 
+      trial: "季付起专属7折优惠券（码：ll88，96年付不可用）", 
+      price: "96元/年、60GB/月（折合8元/月，不可用券）", 
       oneTime: "❌暂无一次性套餐", 
       hasOneTime: false, 
       tg: "telegram", 
@@ -75,8 +75,8 @@ export const AirportRankingContent: React.FC = () => {
       name: "环球梯", 
       logo: "/images/huanqiuti-logo.png",
       url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", 
-      trial: "专属新客7折优惠券（码：HQ66）", 
-      price: "96元/年、60GB/月（7折后折合5.6元/月）", 
+      trial: "专属新客7折优惠券（码：HQ66，96年付不可用）", 
+      price: "96元/年、60GB/月（折合8元/月，不可用券）", 
       oneTime: "✔️99元/80GB起一次性流量", 
       hasOneTime: true, 
       tg: "telegram", 
@@ -214,7 +214,7 @@ export const AirportRankingContent: React.FC = () => {
               <Sparkles className="w-4 h-4" /> 2026年最新实测精选：
             </div>
             <div>
-              重点收录 <strong>神行加速</strong>（多入口BGP+HG中专线路、晚高峰 4K 零抖动、专属优惠券 sx0077 立减 30%）、<strong>榴莲云</strong>（IPLC 专线、年付折合约 5.6元/月平价首选）、<strong>大佬云</strong>（季付专属 7 折码 dly888）及 <strong>环球梯</strong>（IEPL 端内专线、专属优惠码 HQ66），点击评测即可查看长文拆解！
+              重点收录 <strong>神行加速</strong>（多入口BGP+HG中专线路、晚高峰 4K 零抖动、专属优惠券 sx0077 立减 30%）、<strong>榴莲云</strong>（IEPL 专线、年付 96元折合 8元/月平价首选）、<strong>大佬云</strong>（季付专属 7 折码 dly888）及 <strong>环球梯</strong>（IEPL 端内专线、专属优惠码 HQ66），点击评测即可查看长文拆解！
             </div>
           </div>
         </div>
@@ -494,11 +494,11 @@ export const AirportRankingContent: React.FC = () => {
                 <span className="font-extrabold text-base text-slate-900 dark:text-white">榴莲云 机场服务评测</span>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                IEPL 专线低价小流量首选，入门档年付折合仅 5.6 元/月（60GB/月），新客季付及以上享专属 7 折优惠码 ll88，实测 60 个 VLESS 节点覆盖港台新美日，支持自研与第三方客户端。
+                IEPL 专线低价小流量首选，入门档年付 96元/年（折合 8 元/月，60GB/月，特惠版不适用优惠券），新客季付及以上常规套餐享专属 7 折优惠码 ll88，实测 60 个 VLESS 节点覆盖港台新美日，支持自研与第三方客户端。
               </p>
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs space-y-1 font-mono">
-                <div>• 优惠政策：季付起专属优惠券（码：<strong className="text-amber-600 dark:text-amber-400">ll88</strong> 享 7 折大额优惠）</div>
-                <div>• 套餐资费：年付入门约 5.6元/60GB每月；轻享包 140GB 季付折后 45.36元</div>
+                <div>• 优惠政策：季付起专属优惠券（码：<strong className="text-amber-600 dark:text-amber-400">ll88</strong> 享 7 折，96年付除外）</div>
+                <div>• 套餐资费：年付入门 96元/60GB每月（折合 8元/月，不可用券）；轻享包 140GB 季付折后 45.36元</div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -565,8 +565,8 @@ export const AirportRankingContent: React.FC = () => {
                 全节点 IEPL 专线直连不过 GFW，60 个 VLESS 节点可用率 96.7%，支持香港、日本、新加坡、台湾、美国等全流媒体与 ChatGPT 原生解锁。
               </p>
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs space-y-1 font-mono">
-                <div>• 优惠政策：开业新客福利优惠券（码：<strong className="text-rose-600 dark:text-rose-400">HQ66</strong> 享 7 折大额优惠）</div>
-                <div>• 套餐资费：年付 96元/年（7折后折合 5.6元/月 60GB）；月付 22元/120GB起</div>
+                <div>• 优惠政策：开业新客福利优惠券（码：<strong className="text-rose-600 dark:text-rose-400">HQ66</strong> 享 7 折，96年付除外）</div>
+                <div>• 套餐资费：年付学生包 96元/年（折合 8元/月 60GB，不可用券）；常规月付 22元/120GB起</div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">

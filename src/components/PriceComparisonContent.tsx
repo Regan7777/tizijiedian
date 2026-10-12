@@ -63,11 +63,11 @@ export const PriceComparisonContent: React.FC = () => {
       name: "榴莲云", 
       logo: "/images/liulianyun-logo.png",
       url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", 
-      priceNum: 5.6, 
-      priceText: "年付折合5.6元/60GB每月", 
+      priceNum: 8, 
+      priceText: "年付折合8元/60GB每月(不可用券)", 
       trafficNum: 60, 
       trafficText: "60 GB", 
-      trial: "季付起专属7折优惠券(码:ll88)", 
+      trial: "季付起专属7折优惠券(码:ll88，96年付不可用)", 
       hasTrial: true, 
       oneTime: "暂无一次性套餐", 
       hasOneTime: false, 
@@ -92,11 +92,11 @@ export const PriceComparisonContent: React.FC = () => {
       name: "环球梯", 
       logo: "/images/huanqiuti-logo.png",
       url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", 
-      priceNum: 5.6, 
-      priceText: "年付折合5.6元/60GB每月(7折后)", 
+      priceNum: 8, 
+      priceText: "年付折合8元/60GB每月(不可用券)", 
       trafficNum: 60, 
       trafficText: "60 GB", 
-      trial: "专属新客7折优惠券(码:HQ66)", 
+      trial: "专属新客7折优惠券(码:HQ66，96年付不可用)", 
       hasTrial: true, 
       oneTime: "99元/80GB起不限时", 
       hasOneTime: true, 
@@ -324,7 +324,7 @@ export const PriceComparisonContent: React.FC = () => {
           </h2>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          为了建立科学的横向比对基准线，评测室持续采集代表性样本。例如 <strong>神行加速</strong>（多入口BGP+HG中专线路、晚高峰 4K 零抖动、专属优惠券 sx0077）与 <strong>榴莲云</strong>（年付折合仅 5.6元/月高性价比平价首选）。经长期检测，不仅极具价格竞争力，在晚高峰稳定性与流媒体解锁方面也表现出众。
+          为了建立科学的横向比对基准线，评测室持续采集代表性样本。例如 <strong>神行加速</strong>（多入口BGP+HG中专线路、晚高峰 4K 零抖动、专属优惠券 sx0077）与 <strong>榴莲云</strong>（年付 96元折合 8元/月高性价比平价首选）。经长期检测，不仅极具价格竞争力，在晚高峰稳定性与流媒体解锁方面也表现出众。
         </p>
       </div>
 
@@ -393,7 +393,7 @@ export const PriceComparisonContent: React.FC = () => {
             </div>
             <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
               <strong className="text-slate-900 dark:text-white block mb-0.5">🎓 学生党 / 轻度查资料 / 偶用 AI</strong>
-              <span className="text-slate-600 dark:text-slate-300">月付低至 5.6~12 元的平价中转机场（如榴莲云、大佬云），单月 60~80G 足够日常学习使用。</span>
+              <span className="text-slate-600 dark:text-slate-300">月均低至 8~12 元的平价中转专线机场（如榴莲云、大佬云），单月 60~80G 足够日常学习使用。</span>
             </div>
             <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
               <strong className="text-slate-900 dark:text-white block mb-0.5">🍿 4K 奈飞 / YouTube 影音追剧狂</strong>
