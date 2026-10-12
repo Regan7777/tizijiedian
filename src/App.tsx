@@ -27,6 +27,9 @@ const MainLayout: React.FC = () => {
         return <GuideDetailPage key={currentRoute.params?.slug || 'guide'} slug={currentRoute.params?.slug} />;
       case '/blog':
         if (currentRoute.params?.slug) {
+          if (currentRoute.params.slug === 'top-recommendations') {
+            return <GuideDetailPage slug="top-recommendations" />;
+          }
           return <ArticleDetailPage key={currentRoute.params.slug} slug={currentRoute.params.slug} />;
         }
         return <CategoryArchivePage slug="all" />;

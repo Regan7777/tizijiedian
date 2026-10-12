@@ -77,14 +77,22 @@ export const CategoryArchivePage: React.FC<CategoryArchivePageProps> = ({ slug =
     ? '按发布时间汇总梯子节点的 VPN 推荐、机场评测、Clash 与 Shadowrocket 教程、AI 工具访问和科学上网避坑文章。' 
     : (currentSubCat ? currentSubCat.description : currentCat?.description || '');
 
-  // Filter articles belonging to this category or subcategory
+  // Filter articles belonging to this category or subcategory (prioritizing isSticky articles to the very top)
   const filteredArticles = isAll
-    ? [...articles].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+    ? [...articles].sort((a, b) => {
+        if (a.isSticky && !b.isSticky) return -1;
+        if (!a.isSticky && b.isSticky) return 1;
+        return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+      })
     : articles.filter(a => {
         if (currentSubCat) {
           return a.subcategoryId === currentSubCat.id;
         }
         return a.categoryId === currentCat?.id;
+      }).sort((a, b) => {
+        if (a.isSticky && !b.isSticky) return -1;
+        if (!a.isSticky && b.isSticky) return 1;
+        return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
       });
 
   // Pagination slice
@@ -118,7 +126,11 @@ export const CategoryArchivePage: React.FC<CategoryArchivePageProps> = ({ slug =
       sessionStorage.removeItem('last_article_list_slug');
     }
     sessionStorage.setItem('last_article_list_page', String(safePage));
-    navigateTo('/blog', { slug: art.slug });
+    if (art.slug === 'top-recommendations') {
+      navigateTo('/guides', { slug: 'top-recommendations' });
+    } else {
+      navigateTo('/blog', { slug: art.slug });
+    }
   };
 
   // Popular / Trending articles for right sidebar
@@ -241,6 +253,11 @@ export const CategoryArchivePage: React.FC<CategoryArchivePageProps> = ({ slug =
                 <div className="flex-1 space-y-2 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                      {art.isSticky && (
+                        <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-extrabold px-2 py-0.5 rounded text-[10px] shadow-xs">
+                          置顶榜单
+                        </span>
+                      )}
                       <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {art.publishDate}</span>
                       <span>•</span>
                       <span>{art.readTime}</span>

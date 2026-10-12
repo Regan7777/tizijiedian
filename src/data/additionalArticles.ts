@@ -2,6 +2,56 @@ import { Article } from '../types';
 
 export const additionalArticles: Article[] = [
   // ==========================================
+  // 0. 置顶榜单 - 2026年翻墙机场推荐评测｜稳定便宜VPN机场排行榜
+  // ==========================================
+  {
+    id: "art-eval-airport-ranking-2026",
+    title: "2026年翻墙机场推荐评测｜稳定便宜VPN机场排行榜（高性价比科学上网工具长期更新）",
+    slug: "top-recommendations",
+    excerpt: "2026 年翻墙机场推荐排行榜：深度评测神行加速、榴莲云、大佬云、环球梯、云界线、闪电鼠等优质中转与 IEPL/IPLC 专线机场，包含套餐价格、优惠码与晚高峰 60 节点实测数据，助你一目了然选出最省最稳方案。",
+    coverImage: "/images/airport-recommendation-2026.jpg",
+    categoryId: "evaluations",
+    subcategoryId: "eval-latest",
+    tags: ["科学上网", "VPN", "机场推荐", "专线节点"],
+    author: {
+      name: "梯子节点实验室",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+      role: "资深网络架构评测师"
+    },
+    publishDate: "2026-09-16",
+    updateDate: "2026-10-12",
+    readTime: "15 分钟",
+    isSticky: true,
+    isFeatured: true,
+    views: 12890,
+    score: 9.9,
+    pros: [
+      "精选 6 家一线稳定专线机场（神行加速、榴莲云、大佬云、环球梯、云界线、闪电鼠）",
+      "全节点晚高峰 60 个 VLESS 节点真实测速与可用率客观统计",
+      "提供专属 7 折优惠码与最低 5.6 元/月低价平价首选方案",
+      "涵盖不限时按量流量包、AI 与全流媒体 4K 原生解锁测试"
+    ],
+    cons: [
+      "各地区不同运营商实际体验存在差异，建议先购月付或小包实测"
+    ],
+    hasAffiliateDisclosure: true,
+    content: `
+![2026翻墙机场推荐](/images/airport-recommendation-2026.jpg)
+
+## 2026年翻墙机场推荐评测｜稳定便宜VPN机场排行榜
+
+这份 2026 年翻墙机场推荐榜汇总套餐价格、流量、线路、客户端支持、使用场景与真实测速，帮助你先缩小候选范围。机场与传统 VPN 的产品形式不同，实际速度和稳定性也会随地区、运营商、时段及服务方调整而变化；榜单结果应结合你自己的网络验证。
+
+### 核心评测推荐梯子机场速览：
+1. **神行加速**：多入口 BGP + HG 中转专线架构，晚高峰 4K 极速秒开零抖动，原生解锁 Netflix/Disney+/ChatGPT，专属优惠码 sx0077 立减 30%，年付折合仅 8 元/月。
+2. **榴莲云**：IEPL 内网专线小流量首选，入门档年付折合仅 5.6 元/月（60GB/月），新客季付及以上享专属 7 折优惠码 ll88，实测 60 个 VLESS 节点全通。
+3. **大佬云**：全节点 VLESS 协议与 IPLC 专线冗余，4K 视频秒开零卡顿，Netflix / Disney+ 与 ChatGPT 原生解锁，全节点 1.0x 标准倍率，专属 7 折优惠码 dly888。
+4. **环球梯**：全节点 IEPL 专线直连不过 GFW，60 个 VLESS 节点可用率 96.7%，支持香港、日本、新加坡、台湾、美国等全流媒体与 ChatGPT 原生解锁，优惠码 HQ66。
+5. **云界线**：全节点 VLESS 协议配合动态专线优化，晚高峰 4K 极速秒开，覆盖港台新日美英德等全球节点，提供免费测试账号与 7 折新客优惠。
+6. **闪电鼠**：新加坡海外团队运营，全节点 IEPL 专线与 VLESS 协议，全节点 1.0x 标准倍率且不限在线设备数，解锁 Netflix、Disney+ 与 ChatGPT，专属优惠码 sd88。
+`
+  },
+  // ==========================================
   // 1. 评测 (evaluations) - eval-latest (核心推荐机场专属深度实测评测)
   // ==========================================
   {
