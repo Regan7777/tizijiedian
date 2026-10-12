@@ -9,6 +9,7 @@ import {
 
 interface AirportPriceItem {
   name: string;
+  logo?: string;
   url: string;
   priceNum: number; // monthly approx price in CNY for color coding & sorting
   priceText: string;
@@ -41,14 +42,96 @@ export const PriceComparisonContent: React.FC = () => {
     setOpenAccordion(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Top 6 airports detailed pricing & specs data
+  // Top 6 airports detailed pricing & specs data (fully synchronized with in-depth evaluation articles)
   const airportData: AirportPriceItem[] = [
-    { name: "神行加速", url: "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8", priceNum: 8, priceText: "年付折合8元/60GB每月", trafficNum: 60, trafficText: "60 GB", trial: "优惠码sx0077立减30%", hasTrial: true, oneTime: "99元/90GB不限时", hasOneTime: true, reviewSlug: "shenxing-accelerator-in-depth-review", isSpecialLine: true },
-    { name: "榴莲云", url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", priceNum: 5.6, priceText: "年付折合5.6元/60GB每月", trafficNum: 60, trafficText: "60 GB", trial: "季付优惠码ll88享7折", hasTrial: true, oneTime: "暂无一次性套餐", hasOneTime: false, reviewSlug: "liulianyun-airport-review" },
-    { name: "大佬云", url: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL", priceNum: 12, priceText: "12元/80GB每月；98元/年长效包", trafficNum: 80, trafficText: "80 GB", trial: "专属码dly888季付7折", hasTrial: true, oneTime: "支持单独购买", hasOneTime: true, reviewSlug: "dalaoyun-airport-review", isSpecialLine: true },
-    { name: "环球梯", url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", priceNum: 8, priceText: "年付折合8元/60GB每月", trafficNum: 60, trafficText: "60 GB", trial: "优惠码HQ66立减", hasTrial: true, oneTime: "99元/80GB不限时", hasOneTime: true, reviewSlug: "huanqiuti-airport-review", isSpecialLine: true },
-    { name: "云界线", url: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW", priceNum: 22, priceText: "22元/150GB每月(新客7折)", trafficNum: 150, trafficText: "150 GB", trial: "可申请测试账号", hasTrial: true, oneTime: "支持单独购买", hasOneTime: true, reviewSlug: "yunjiexian-airport-review" },
-    { name: "闪电鼠", url: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK", priceNum: 22, priceText: "22元/120GB每月；年付96元(60G/月)", trafficNum: 120, trafficText: "120 GB", trial: "专属码sd88首单7折", hasTrial: true, oneTime: "支持单独购买按量包", hasOneTime: true, reviewSlug: "shandianshu-airport-review", isSpecialLine: true }
+    { 
+      name: "神行加速", 
+      logo: "/images/shenxing-logo.png",
+      url: "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8", 
+      priceNum: 8, 
+      priceText: "年付折合8元/60GB每月", 
+      trafficNum: 60, 
+      trafficText: "60 GB", 
+      trial: "专属优惠券sx0077立减30%", 
+      hasTrial: true, 
+      oneTime: "99元/90GB起不限时", 
+      hasOneTime: true, 
+      reviewSlug: "shenxing-accelerator-in-depth-review", 
+      isSpecialLine: true 
+    },
+    { 
+      name: "榴莲云", 
+      logo: "/images/liulianyun-logo.png",
+      url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", 
+      priceNum: 5.6, 
+      priceText: "年付折合5.6元/60GB每月", 
+      trafficNum: 60, 
+      trafficText: "60 GB", 
+      trial: "季付起专属7折优惠券(码:ll88)", 
+      hasTrial: true, 
+      oneTime: "暂无一次性套餐", 
+      hasOneTime: false, 
+      reviewSlug: "liulianyun-airport-review" 
+    },
+    { 
+      name: "大佬云", 
+      logo: "/images/dalaoyun-logo.png",
+      url: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL", 
+      priceNum: 8, 
+      priceText: "年付折合8元/60GB每月(月付19.99元)", 
+      trafficNum: 60, 
+      trafficText: "60 GB", 
+      trial: "专属优惠券dly888季付立享7折", 
+      hasTrial: true, 
+      oneTime: "99元/78GB起随行包", 
+      hasOneTime: true, 
+      reviewSlug: "dalaoyun-airport-review", 
+      isSpecialLine: true 
+    },
+    { 
+      name: "环球梯", 
+      logo: "/images/huanqiuti-logo.png",
+      url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", 
+      priceNum: 5.6, 
+      priceText: "年付折合5.6元/60GB每月(7折后)", 
+      trafficNum: 60, 
+      trafficText: "60 GB", 
+      trial: "专属新客7折优惠券(码:HQ66)", 
+      hasTrial: true, 
+      oneTime: "99元/80GB起不限时", 
+      hasOneTime: true, 
+      reviewSlug: "huanqiuti-airport-review", 
+      isSpecialLine: true 
+    },
+    { 
+      name: "云界线", 
+      logo: "/images/yunjiexian-logo.png",
+      url: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW", 
+      priceNum: 15.4, 
+      priceText: "22元/150GB每月(新客7折约15.4元)", 
+      trafficNum: 150, 
+      trafficText: "150 GB", 
+      trial: "新客直享7折，可申请测试账号", 
+      hasTrial: true, 
+      oneTime: "99元/300GB起一次性包", 
+      hasOneTime: true, 
+      reviewSlug: "yunjiexian-airport-review" 
+    },
+    { 
+      name: "闪电鼠", 
+      logo: "/images/shandianshu-logo.png",
+      url: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK", 
+      priceNum: 8, 
+      priceText: "年付折合8元/60GB每月(月付19.9元)", 
+      trafficNum: 60, 
+      trafficText: "60 GB", 
+      trial: "首单专属7折优惠券(码:sd88)", 
+      hasTrial: true, 
+      oneTime: "不限并发设备、全节点1.0x", 
+      hasOneTime: true, 
+      reviewSlug: "shandianshu-airport-review", 
+      isSpecialLine: true 
+    }
   ];
 
   // 13-dimension table data for Traffic vs Unlimited
@@ -474,7 +557,12 @@ export const PriceComparisonContent: React.FC = () => {
                     >
                       {/* Name */}
                       <td className="py-3 px-4 font-bold text-slate-900 dark:text-white">
-                        <span>{item.name}</span>
+                        <div className="flex items-center gap-2">
+                          {item.logo && (
+                            <img src={item.logo} alt={item.name} className="w-5 h-5 object-contain rounded shrink-0" />
+                          )}
+                          <span>{item.name}</span>
+                        </div>
                       </td>
 
                       {/* Official URL Link */}
