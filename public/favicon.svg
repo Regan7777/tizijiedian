@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .bg-tile { fill: #0f172a; }
+      .fg-emblem { fill: #ffffff; }
+      @media (prefers-color-scheme: dark) {
+        .bg-tile { fill: #ffffff; }
+        .fg-emblem { fill: #0f172a; }
+      }
+    </style>
+  </defs>
+  <!-- Background Tile matching the Header BrandLogo container -->
+  <rect class="bg-tile" width="128" height="128" rx="28" />
+  
+  <!-- Geometric Emblem and Typography matching BrandLogo -->
+  <g class="fg-emblem" transform="translate(27, 12) scale(0.74)">
+    <!-- Top Inverted Triangle -->
+    <polygon points="27,14 73,14 50,42" />
+
+    <!-- Left Wing -->
+    <polygon points="14,24 43,49 43,84 14,106" />
+
+    <!-- Right Wing -->
+    <polygon points="86,24 57,49 57,84 86,106" />
+
+    <!-- Stylized "意品" Text -->
+    <text x="50" y="115" text-anchor="middle" font-size="11" font-weight="900" letter-spacing="1.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif">意</text>
+    <text x="50" y="127" text-anchor="middle" font-size="11" font-weight="900" letter-spacing="1.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif">品</text>
+  </g>
+</svg>
