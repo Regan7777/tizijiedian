@@ -98,7 +98,7 @@ export const HomePage: React.FC = () => {
         <div className="max-w-5xl mx-auto text-center space-y-6">
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            {siteConfig.tagline}
+            <span className="text-indigo-600 dark:text-indigo-400">梯子节点</span> · {siteConfig.tagline}
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
