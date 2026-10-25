@@ -83,9 +83,10 @@ function submitToEndpoint(endpointUrl) {
 }
 
 async function main() {
+  await submitToEndpoint('https://yandex.com/indexnow');
   await submitToEndpoint('https://api.indexnow.org/indexnow');
   await submitToEndpoint('https://www.bing.com/indexnow');
-  console.log('\n✨ IndexNow 批量推送流程完毕！');
+  console.log('\n✨ IndexNow 批量推送流程完毕！所有引擎间会自动共享这些 URL。');
 }
 
 main();
