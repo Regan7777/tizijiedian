@@ -1,2 +1,15 @@
-# SPA Fallback for Cloudflare Pages
-/*    /index.html   200
+# ==========================================
+# 梯子节点 (tizijiedian.com) - 301 重定向规则表
+# 支持 Cloudflare Pages / Netlify 原生重定向解析
+# ==========================================
+
+# 1. 核心评测推荐服务商 AFF 301 永久重定向
+/go/shenxing       https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8   301
+/go/liulianyun     https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN 301
+/go/dalaoyun       https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL  301
+/go/huanqiuti      https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG 301
+/go/yunjiexian     https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW 301
+/go/shandianshu    https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK 301
+
+# 2. SPA Fallback 规则 (必须置于最后)
+/*                 /index.html                                         200

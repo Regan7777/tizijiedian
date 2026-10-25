@@ -7,6 +7,7 @@ import {
   CheckCircle2, Compass, Layers, BarChart3, ShieldAlert, Cpu, HeartHandshake,
   DollarSign, Wifi, Laptop, KeyRound, Radio
 } from 'lucide-react';
+import { AFF_LINKS } from '../data/affLinks';
 
 interface ReviewCard {
   name: string;
@@ -48,7 +49,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "多入口BGP+HG中转专线架构，晚高峰4K零抖动，原生住宅IP解锁Netflix/ChatGPT，无设备限制",
       lineType: "多入口 BGP + HG中转专线",
       priceDesc: "23元/月 150GB（专属码sx0077立减30%）",
-      url: "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8",
+      url: AFF_LINKS.shenxing.redirectPath,
       reviewSlug: "shenxing-accelerator-in-depth-review",
       tags: ["高性价比", "4K零抖动", "专属优惠券sx0077", "不限时套餐"],
       features: ["专属优惠券sx0077立减30%", "99元/90GB不限时一次性流量", "多入口BGP+HG中转专线", "全节点双向真实计费不虚标"]
@@ -60,7 +61,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "IEPL专线低价小流量首选，入门档年付96元（折合8元/月，60GB/月，特惠版不适用优惠券），常规套餐季付及以上享专属7折优惠码ll88，60个VLESS节点实测覆盖港台新美日",
       lineType: "IEPL内网专线 / VLESS协议",
       priceDesc: "96元/年 60GB/月（折合8元/月）",
-      url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN",
+      url: AFF_LINKS.liulianyun.redirectPath,
       reviewSlug: "liulianyun-airport-review",
       tags: ["8元月均", "IEPL专线", "季付折扣券ll88", "60个节点"],
       features: ["季付起专属优惠券ll88享7折（96年付不可用）", "入门档年付96元（折合8元/60GB每月）", "60个VLESS节点覆盖港台新美日", "支持自研客户端与Clash/小火箭"]
@@ -72,7 +73,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "VLESS协议与IPLC/IEPL专线调度，不限设备并发，全节点1.0x真实倍率，60个节点实测可达率95%，专属7折优惠券dly888",
       lineType: "IPLC/IEPL高速专线 / VLESS协议",
       priceDesc: "19.99元/月 100GB（季付7折码dly888）",
-      url: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL",
+      url: AFF_LINKS.dalaoyun.redirectPath,
       reviewSlug: "dalaoyun-airport-review",
       tags: ["不限设备数", "VLESS专线", "初云特惠", "优惠券dly888"],
       features: ["专属优惠券dly888季付立享7折", "初云特惠19.99元/100GB低门槛", "60个VLESS节点覆盖港台新日美", "全节点1.0x真实透明计费"]
@@ -84,7 +85,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "全节点VLESS协议与纯专线高速通道，晚高峰丢包率<0.5%，60个节点实测非零率96.7%，专享7折优惠码HQ66（96年付特惠版除外）",
       lineType: "纯专线端内直连 / VLESS协议",
       priceDesc: "22元/月 120GB（新客7折码HQ66）",
-      url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG",
+      url: AFF_LINKS.huanqiuti.redirectPath,
       reviewSlug: "huanqiuti-airport-review",
       tags: ["7折券HQ66", "纯专线", "60个节点", "低丢包率"],
       features: ["专属7折优惠券HQ66（96年付特惠版不适用）", "60个VLESS节点实测96.7%可用", "提供99元/80GB不限时按量套餐", "端内物理专线不经过GFW"]
@@ -96,7 +97,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "22元/150GB入门档新客7折（折后约15.4元/月），五地60个VLESS节点，后台独立标注流媒体解锁状态，支持申请测试账号",
       lineType: "多协议混合调度 / 全IPLC专线",
       priceDesc: "22元/150GB每月（新客7折约15.4元）",
-      url: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW",
+      url: AFF_LINKS.yunjiexian.redirectPath,
       reviewSlug: "yunjiexian-airport-review",
       tags: ["新客7折", "22元/150GB", "支持测试账号", "流媒体标注"],
       features: ["新客结账页面直享7折优惠", "支持联系客服申请免费测试账号", "提供99元/300GB一次性流量备用包", "后台清晰标注节点流媒体与AI状态"]
@@ -108,7 +109,7 @@ export const EvaluationHubContent: React.FC = () => {
       highlight: "新加坡海外技术团队主理，彻底不限设备并发数，全节点1.0x透明倍率，60个VLESS节点峰值2.5Gbps，首单7折优惠码sd88",
       lineType: "IPLC/IEPL高速专线 / VLESS协议",
       priceDesc: "19.9元/月 120GB（首单7折码sd88）",
-      url: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK",
+      url: AFF_LINKS.shandianshu.redirectPath,
       reviewSlug: "shandianshu-airport-review",
       tags: ["彻底不限设备", "19.9元起", "优惠码sd88", "1.0x倍率"],
       features: ["首单专属优惠券sd88享7折大额减免", "全套餐彻底不限制并发设备数量", "60个VLESS节点实测可达率95%", "全节点保持真实1.0x倍率不扣量"]

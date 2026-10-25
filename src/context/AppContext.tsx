@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Article, Category, GuidePage } from '../types';
 import { articlesData, categoriesData, guidesData } from '../data/mockData';
+import { getAffTargetUrl } from '../data/affLinks';
 
 interface AppContextType {
   theme: 'light' | 'dark';
@@ -39,6 +40,16 @@ const parseHashRoute = (rawHash: string): { path: string; params?: Record<string
     searchParams.forEach((val, key) => {
       queryParams[key] = val;
     });
+  }
+
+  // Handle /go/ AFF redirect fallback in SPA
+  if (pathWithSlug.startsWith('/go/')) {
+    const id = pathWithSlug.replace('/go/', '');
+    const affTarget = getAffTargetUrl(id);
+    if (affTarget && typeof window !== 'undefined') {
+      window.location.replace(affTarget);
+      return { path: '/' };
+    }
   }
 
   if (pathWithSlug.startsWith('/blog/categories')) {
@@ -115,6 +126,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const navigateTo = (path: string, params?: Record<string, string>) => {
+    if (path.startsWith('/go/')) {
+      const id = path.replace('/go/', '');
+      const affTarget = getAffTargetUrl(id);
+      if (affTarget && typeof window !== 'undefined') {
+        window.open(affTarget, '_blank', 'noopener,noreferrer');
+        return;
+      }
+    }
+
     setCurrentRoute({ path, params });
     window.scrollTo({ top: 0, behavior: 'smooth' });
 

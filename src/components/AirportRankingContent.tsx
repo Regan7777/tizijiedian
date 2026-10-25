@@ -4,6 +4,7 @@ import {
   ChevronRight, ChevronDown, ExternalLink, ShieldCheck, 
   AlertTriangle, HelpCircle, Search, Clock, Sparkles, Zap, BookOpen, Award
 } from 'lucide-react';
+import { AFF_LINKS } from '../data/affLinks';
 
 interface AirportRow {
   name: string;
@@ -34,12 +35,12 @@ export const AirportRankingContent: React.FC = () => {
     setOpenAccordion(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Top 6 airports in strict priority order
+  // Top 6 airports in strict priority order (using 301 redirect paths)
   const airportList: AirportRow[] = [
     { 
       name: "神行加速", 
       logo: "/images/shenxing-logo.png",
-      url: "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8", 
+      url: AFF_LINKS.shenxing.redirectPath, 
       trial: "专属优惠券sx0077（立减30%）", 
       price: "23元/月 150GB（专属码券后约16.1元）", 
       oneTime: "✔️99元/90GB起不限时流量", 
@@ -51,7 +52,7 @@ export const AirportRankingContent: React.FC = () => {
     { 
       name: "榴莲云", 
       logo: "/images/liulianyun-logo.png",
-      url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", 
+      url: AFF_LINKS.liulianyun.redirectPath, 
       trial: "季付起专属7折优惠券（码：ll88，96年付不可用）", 
       price: "96元/年、60GB/月（折合8元/月平价首选）", 
       oneTime: "❌暂无一次性套餐", 
@@ -63,7 +64,7 @@ export const AirportRankingContent: React.FC = () => {
     { 
       name: "大佬云", 
       logo: "/images/dalaoyun-logo.png",
-      url: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL", 
+      url: AFF_LINKS.dalaoyun.redirectPath, 
       trial: "季付专属7折优惠券（码：dly888）", 
       price: "19.99元/月 100GB（季付7折约13.9元）", 
       oneTime: "✔️99元/78GB起一次性包", 
@@ -74,7 +75,7 @@ export const AirportRankingContent: React.FC = () => {
     { 
       name: "环球梯", 
       logo: "/images/huanqiuti-logo.png",
-      url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", 
+      url: AFF_LINKS.huanqiuti.redirectPath, 
       trial: "专属新客7折优惠券（码：HQ66，96年付不可用）", 
       price: "22元/月 120GB（新客7折约15.4元）", 
       oneTime: "✔️99元/80GB起一次性流量", 
@@ -86,7 +87,7 @@ export const AirportRankingContent: React.FC = () => {
     { 
       name: "云界线", 
       logo: "/images/yunjiexian-logo.png",
-      url: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW", 
+      url: AFF_LINKS.yunjiexian.redirectPath, 
       trial: "新客结账立享7折，可申请测试账号", 
       price: "22元/150GB每月（新客7折约15.4元）", 
       oneTime: "✔️99元/300GB起按量包", 
@@ -97,7 +98,7 @@ export const AirportRankingContent: React.FC = () => {
     { 
       name: "闪电鼠", 
       logo: "/images/shandianshu-logo.png",
-      url: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK", 
+      url: AFF_LINKS.shandianshu.redirectPath, 
       trial: "新用户首单7折优惠券（码：sd88）", 
       price: "19.9元/月 120GB（首单7折约13.9元）", 
       oneTime: "✔️不限设备数、全节点1.0x", 
@@ -475,7 +476,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8"
+                href={AFF_LINKS.shenxing.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
@@ -509,7 +510,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN"
+                href={AFF_LINKS.liulianyun.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
@@ -543,7 +544,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL"
+                href={AFF_LINKS.dalaoyun.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
@@ -577,7 +578,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG"
+                href={AFF_LINKS.huanqiuti.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
@@ -611,7 +612,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW"
+                href={AFF_LINKS.yunjiexian.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
@@ -645,7 +646,7 @@ export const AirportRankingContent: React.FC = () => {
                 查看详细评测
               </button>
               <a 
-                href="https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK"
+                href={AFF_LINKS.shandianshu.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"

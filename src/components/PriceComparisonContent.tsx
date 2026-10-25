@@ -6,6 +6,7 @@ import {
   Sparkles, Zap, ArrowRight, Flame, BookOpen, AlertCircle, Award,
   CheckCircle2, XCircle, BarChart3, Layers, Compass, Filter, RefreshCw
 } from 'lucide-react';
+import { AFF_LINKS } from '../data/affLinks';
 
 interface AirportPriceItem {
   name: string;
@@ -42,12 +43,12 @@ export const PriceComparisonContent: React.FC = () => {
     setOpenAccordion(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Top 6 airports detailed pricing & specs data (fully synchronized with in-depth evaluation articles)
+  // Top 6 airports detailed pricing & specs data (fully synchronized with in-depth evaluation articles, using 301 redirect paths)
   const airportData: AirportPriceItem[] = [
     { 
       name: "神行加速", 
       logo: "/images/shenxing-logo.png",
-      url: "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8", 
+      url: AFF_LINKS.shenxing.redirectPath, 
       priceNum: 16.1, 
       priceText: "23元/月 150GB(立减30%券约16.1元)", 
       trafficNum: 150, 
@@ -62,7 +63,7 @@ export const PriceComparisonContent: React.FC = () => {
     { 
       name: "榴莲云", 
       logo: "/images/liulianyun-logo.png",
-      url: "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN", 
+      url: AFF_LINKS.liulianyun.redirectPath, 
       priceNum: 8, 
       priceText: "年付折合8元/60GB每月(平价特惠版)", 
       trafficNum: 60, 
@@ -76,7 +77,7 @@ export const PriceComparisonContent: React.FC = () => {
     { 
       name: "大佬云", 
       logo: "/images/dalaoyun-logo.png",
-      url: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL", 
+      url: AFF_LINKS.dalaoyun.redirectPath, 
       priceNum: 13.99, 
       priceText: "19.99元/月 100GB(季付7折约13.9元)", 
       trafficNum: 100, 
@@ -91,7 +92,7 @@ export const PriceComparisonContent: React.FC = () => {
     { 
       name: "环球梯", 
       logo: "/images/huanqiuti-logo.png",
-      url: "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG", 
+      url: AFF_LINKS.huanqiuti.redirectPath, 
       priceNum: 15.4, 
       priceText: "22元/月 120GB(新客7折码约15.4元)", 
       trafficNum: 120, 
@@ -106,7 +107,7 @@ export const PriceComparisonContent: React.FC = () => {
     { 
       name: "云界线", 
       logo: "/images/yunjiexian-logo.png",
-      url: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW", 
+      url: AFF_LINKS.yunjiexian.redirectPath, 
       priceNum: 15.4, 
       priceText: "22元/150GB每月(新客7折约15.4元)", 
       trafficNum: 150, 
@@ -120,7 +121,7 @@ export const PriceComparisonContent: React.FC = () => {
     { 
       name: "闪电鼠", 
       logo: "/images/shandianshu-logo.png",
-      url: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK", 
+      url: AFF_LINKS.shandianshu.redirectPath, 
       priceNum: 13.9, 
       priceText: "19.9元/月 120GB(首单7折约13.9元)", 
       trafficNum: 120, 

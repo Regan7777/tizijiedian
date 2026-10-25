@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    {
+      "source": "/go/shenxing",
+      "destination": "https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8",
+      "permanent": true
+    },
+    {
+      "source": "/go/liulianyun",
+      "destination": "https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN",
+      "permanent": true
+    },
+    {
+      "source": "/go/dalaoyun",
+      "destination": "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL",
+      "permanent": true
+    },
+    {
+      "source": "/go/huanqiuti",
+      "destination": "https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG",
+      "permanent": true
+    },
+    {
+      "source": "/go/yunjiexian",
+      "destination": "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW",
+      "permanent": true
+    },
+    {
+      "source": "/go/shandianshu",
+      "destination": "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
