@@ -13,7 +13,76 @@ import { AboutPage } from './pages/AboutPage';
 import { AdminPage } from './pages/AdminPage';
 
 const MainLayout: React.FC = () => {
-  const { currentRoute } = useApp();
+  const { currentRoute, articles, guides } = useApp();
+
+  React.useEffect(() => {
+    let title = "梯子节点 | 独立·客观·数据驱动的科技工具与网络服务评测指南";
+    let desc = "梯子节点专注于科技工具实测与网络加速服务横评，为您提供最新机场节点测速排行榜、Clash与Sing-box客户端配置教程、流媒体4K/8K解锁及ChatGPT等AI工具加速方案。平台坚持独立客观与真实数据驱动，严选优质BGP中转与IPLC专线，拒绝商业充钱带货，为个人与出海用户提供透明靠谱的选型指南。";
+    let canonical = "https://tizijiedian.com/";
+
+    if (currentRoute.path === '/about') {
+      title = "关于我们 | 梯子节点实验室";
+      desc = "梯子节点实验室是由独立网络系统架构师与网络安全研究者自发组建的第三方客观评测机构。我们依托全球部署的 60 多个自动化监测节点与大带宽测速集群，坚持拒绝任何商业充钱带货、以纯真实数据驱动的评测准则，长期为广大个人与出海企业用户提供透明靠谱的科技工具实测报告、机场翻墙选型横评与网络隐私防追踪避坑指南。";
+      canonical = "https://tizijiedian.com/about";
+    } else if (currentRoute.path === '/blog/categories') {
+      title = "全部分类与专题指南 | 梯子节点";
+      desc = "梯子节点全部分类与专题指南导航中心：系统梳理深度评测、实操教程、行业资讯、应用场景与网站公告等五大核心内容板块。无论您是零基础新手快速入门、查找海外跨境电商出海网络综合解决方案，还是对比不同线路协议性能，都能在此快速找到结构清晰、客观透明且数据翔实的高质量技术指南与实测数据，助您轻松实现精准选型决策。";
+      canonical = "https://tizijiedian.com/blog/categories";
+    } else if (currentRoute.path === '/guides') {
+      const gSlug = currentRoute.params?.slug || 'top-recommendations';
+      const guide = guides.find(g => g.slug === gSlug);
+      if (guide) {
+        title = `${guide.title} | 梯子节点`;
+        desc = guide.description;
+      }
+      canonical = `https://tizijiedian.com/guides/${gSlug}`;
+    } else if (currentRoute.path === '/category') {
+      const cSlug = currentRoute.params?.slug;
+      title = "分类专区 | 梯子节点知识库";
+      if (cSlug) {
+        canonical = `https://tizijiedian.com/category/${cSlug}`;
+      }
+    } else if (currentRoute.path === '/blog') {
+      const aSlug = currentRoute.params?.slug;
+      if (aSlug) {
+        const art = articles.find(a => a.slug === aSlug);
+        if (art) {
+          title = `${art.title} | 梯子节点`;
+          desc = art.excerpt;
+        }
+        canonical = `https://tizijiedian.com/blog/${aSlug}`;
+      } else {
+        title = "全部教程与评测文章 | 梯子节点";
+        desc = "梯子节点教程与评测专区汇聚了最新、最全的科学上网实操配置指南与工具横评报告：全面涵盖各平台主流客户端配置教程、机场节点测速排名、流媒体4K/8K解锁技巧、ChatGPT/Claude等AI工具专线加速方案，以及防跑路避坑与网络安全防护策略。所有内容均经实验室严谨实操验证，助您轻松避开各类常见网络错误。";
+        canonical = "https://tizijiedian.com/blog";
+      }
+    }
+
+    document.title = title;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', desc);
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute('href', canonical);
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', title);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', desc);
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', canonical);
+  }, [currentRoute, articles, guides]);
 
   const renderCurrentPage = () => {
     switch (currentRoute.path) {

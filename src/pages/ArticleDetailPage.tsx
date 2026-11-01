@@ -206,7 +206,7 @@ const DynamicMarkdownBody: React.FC<{ content: string }> = ({ content }) => {
     if (line.startsWith('* ') || line.startsWith('- ')) {
       const listItems: string[] = [];
       while (i < lines.length && (lines[i].trim().startsWith('* ') || lines[i].trim().startsWith('- '))) {
-        listItems.push(lines[i].trim().replace(/^[\*\-]\s+/, ''));
+        listItems.push(lines[i].trim().replace(/^[* -]\s+/, ''));
         i++;
       }
       elements.push(

@@ -4,7 +4,7 @@ import { additionalArticles } from './additionalArticles';
 export const siteConfig: SiteConfig = {
   siteName: "梯子节点",
   tagline: "独立·客观·数据驱动的科技工具与网络服务评测指南",
-  description: "为您提供深度的软件工具测试、网络加速方案横评、安全隐私保护指南与实战教程，助力精准选型与高效办公。",
+  description: "梯子节点专注于科技工具实测与网络加速服务横评，为您提供最新机场节点测速排行榜、Clash与Sing-box客户端配置教程、流媒体4K/8K解锁及ChatGPT等AI工具加速方案。平台坚持独立客观与真实数据驱动，严选优质BGP中转与IPLC专线，拒绝商业充钱带货，为个人与出海用户提供透明靠谱的选型指南。",
   author: "梯子节点实验室 Team",
   evaluationMethodology: {
     title: "梯子节点 5维评测体系与实测标准",
@@ -82,7 +82,7 @@ export const articlesData: Article[] = [
     id: "art-desktop-tutorial-and-troubleshooting",
     title: "电脑客户端本地使用机场与订阅链接保姆级教程：从导入配置到常见故障排错全指南",
     slug: "desktop-client-airport-subscription-setup-and-troubleshooting",
-    excerpt: "专为 Windows 11 / 10 与 macOS 电脑用户打造的本地客户端科学上网实操指南：手把手教你安全下载客户端、获取并导入机场订阅链接、开启智能分流，并深度整理 6 大高频故障系统性排错方案。",
+    excerpt: "2026 年翻墙机场推荐排行榜：深度实测神行加速、榴莲云、大佬云、环球梯、云界线、闪电鼠等优质中转与 IEPL/IPLC 专线机场，全面公开套餐价格、7折专属优惠码与晚高峰 60 节点吞吐带宽及延迟真实数据，拒绝任何商业充钱篡改评分，助你一目了然选出最省钱、最稳定、高性价比的科学上网加速首选高分方案。",
     coverImage: "/images/client-setup-cover.jpg",
     categoryId: "tutorials",
     subcategoryId: "tut-devices",
@@ -240,7 +240,7 @@ export const articlesData: Article[] = [
     id: "art-2",
     title: "从零开始：2026全平台客户端配置新手小白教程",
     slug: "all-platform-client-setup-guide",
-    excerpt: "专为零基础新手打造的 2026 全平台客户端配置指南，全面覆盖 Windows、macOS、iOS 与 Android 系统的客户端挑选、安装、节点导入与一键连接步骤，带你 3 分钟轻松上手。",
+    excerpt: "专为零基础新手打造的 2026 全平台客户端配置终极保姆级指南：全面覆盖 Windows、macOS、iOS 苹果手机与 Android 安卓系统的正版客户端挑选、官方安装包获取、节点订阅一键导入与规则分流配置步骤，手把手带你 3 分钟快速搞定科学上网，轻松绕过各类新手常见网络报错与无法正常联网陷阱。",
     coverImage: "/images/client-setup-cover.jpg",
     categoryId: "tutorials",
     subcategoryId: "tut-beginner",
@@ -383,7 +383,7 @@ iOS 设备受苹果生态机制限制，操作流程略有不同：
     id: "art-3",
     title: "AI 生产力大比拼与上手全攻略：ChatGPT、Claude 与 Midjourney 客户端下载、Google 账号登录及地区受限深度排错",
     slug: "ai-tools-network-optimization-guide",
-    excerpt: "从零体验顶级 AI 生产力：覆盖 ChatGPT、Claude 与 Midjourney 官方客户端下载、Google 账号安全登录流程，深度剖析 Google 账号地区变动导致 403 / 1020 报错的底层机制与全套实操排查方案。",
+    excerpt: "从零体验顶级 AI 生产力：全面覆盖 ChatGPT、Claude 与 Midjourney 官方客户端下载、Google 账号一键安全登录流程，深度剖析 Google 账号地区变动导致 403 与 1020 报错的底层机制，提供纯净原生住宅 IP 选型、分流防关联与无痕网络调试的全套高阶实操方案。",
     coverImage: "/images/ai-tools-cover.jpg",
     categoryId: "scenarios",
     subcategoryId: "scen-ai",
@@ -519,7 +519,7 @@ Midjourney 的出图进度反馈严重依赖 Discord 网关的长连接心跳（
     id: "art-4",
     title: "避坑指南：2026年必须警惕的 8 款山寨网络工具与恶意软件列表",
     slug: "malware-warning-and-fake-tools-list",
-    excerpt: "曝光假冒知名品牌的恶意客户端、篡改系统代理设置劫持流量的盗版软件，保护您的账户密码与财产安全。",
+    excerpt: "2026 翻墙网络工具安全避坑指南：重磅曝光假冒主流知名品牌的恶意客户端、强制注入广告弹窗与篡改系统代理设置劫持流量的盗版后门软件。全面拆解黑客木马抓包嗅探与密码窃取底层原理，传授官方正版客户端哈希校验技巧，深度保护您的跨境账号密码、加密货币钱包与个人数字财产隐私安全，彻底远离资金被盗刷与泄密风险。",
     coverImage: "/images/security-cover.jpg",
     categoryId: "news",
     subcategoryId: "news-risks",
@@ -627,7 +627,7 @@ Midjourney 的出图进度反馈严重依赖 Discord 网关的长连接心跳（
     id: "art-5",
     title: "4K/8K 跨区影音播放全攻略：解锁 Netflix, Disney+ 与 YouTube 极速解码",
     slug: "4k-8k-streaming-unlock-guide",
-    excerpt: "深入解析流媒体版权 DRM 与 IP 检测底层机制，手把手教你解决跨区流媒体版权检测问题，配置 PC、Mac 及电视盒子硬件解码，解锁 4K 杜比视界（Dolby Vision）与 8K 极速无缓冲播放。",
+    excerpt: "深入解析 Netflix 网飞、Disney+ 迪士尼与 YouTube 4K/8K 跨区影音流媒体版权 DRM 与 IP 检测底层机制。手把手教你解决原生住宅 IP 判定与区域锁死问题，配置 PC、Mac 及电视盒子硬件解码环境，轻松解锁 4K 杜比视界与 Atmos 全景声极速无缓冲播放的顶级视听体验。",
     coverImage: "/images/streaming-cover.jpg",
     categoryId: "scenarios",
     subcategoryId: "scen-streaming",
@@ -762,7 +762,7 @@ rules:
     id: "art-crossborder",
     title: "2026 外贸出海与跨境办公网络保障指南：TikTok运营、PayPal风控与海外会议防断流实战",
     slug: "cross-border-business-network-guide",
-    excerpt: "专为跨境外贸与远程出海团队打造的网络实操方案，深度解决 TikTok 零播放风控、PayPal/Stripe 资金账户关联锁死、以及 Zoom/Teams 跨洋高清会议卡顿掉线的全链路网络优化技巧。",
+    excerpt: "专为跨境外贸与远程出海团队打造的企业级网络实操方案：深度解决 TikTok 零播放风控限流、PayPal 与 Stripe 跨境资金账户关联锁死、以及 Zoom 和 Teams 跨洋高清音视频会议卡顿掉线等核心痛点，提供低抖动专线部署、纯净静态住宅 IP 选型与防关联指纹浏览器环境深度隔离实战技巧。",
     coverImage: "/images/cross-border-cover.jpg",
     categoryId: "scenarios",
     subcategoryId: "scen-crossborder",
@@ -875,7 +875,7 @@ export const guidesData: GuidePage[] = [
     title: "2026年机场推荐，梯子节点综合推荐榜",
     slug: "top-recommendations",
     type: "recommendation",
-    description: "梯子节点基于 90 天实验室实测数据，精选出的综合性能、安全隐私与性价比最佳评测榜单。",
+    description: "2026年翻墙机场推荐排行榜：梯子节点基于连续 90 天自动化监测与大带宽压测数据，全面深度横评神行加速、榴莲云、大佬云、环球梯、云界线与闪电鼠等主流中转及 IPLC 专线。提供套餐价格横向对比、7折专属优惠码与晚高峰 60 节点真实测速报告，拒绝商业充钱带货，为您呈现客观权威的科学上网高分选型指南。",
     stickyNotice: "📌 本榜单每月 1 日根据过去 30 天的自动化节点连通性监测数据动态更新。最近更新时间：2026 年 10 月 5 日。",
     updateDate: "2026-10-05",
     toc: [
@@ -981,7 +981,7 @@ export const guidesData: GuidePage[] = [
     title: "热门网络加速工具 10 维全方位性能横向对比",
     slug: "performance-comparison",
     type: "comparison",
-    description: "直观对比主流工具的传输协议、吞吐带宽、解封能力与客户端体验。",
+    description: "热门网络加速工具与主流机场 10 维全方位性能横向深度对比：直观量化对比多入口优质 BGP 中转、IPLC 物理专线及直连节点的下行峰值带宽、晚高峰网络抖动率、8K 杜比流媒体解锁能力与全平台客户端体验。真实硬件监测数据驱动，无死角揭秘假专线与倍率套路，助您精准挑选最适合自己的翻墙节点与高速加速器。",
     stickyNotice: "⚡ 数据来源于智测实验室 2026 年第 3 季度硬件大比拼。",
     updateDate: "2026-10-01",
     toc: [
@@ -991,6 +991,19 @@ export const guidesData: GuidePage[] = [
     faqs: [],
     highlightCards: [],
     relatedArticleSlugs: ["top-5-vpn-for-chatgpt-2026"]
+  },
+  {
+    id: "guide-eval",
+    title: "梯子节点评测中心：2026 全网优质机场与翻墙工具长文实测大合集",
+    slug: "eval-center",
+    type: "hub",
+    description: "梯子节点评测中心平台为您汇聚 2026 全网主流机场与科学上网网络加速服务的长文实测大合集。全面深度涵盖神行加速、榴莲云、大佬云、环球梯、云界线及闪电鼠等服务商的节点延迟、丢包率、晚高峰 8K 压测、流媒体解锁及专属 7 折优惠码信息，坚持独立客观与真实数据驱动，助您全面掌握各家优缺点与防坑选型指南。",
+    stickyNotice: "⚡ 评测中心数据由智测实验室持续监测更新。",
+    updateDate: "2026-10-05",
+    toc: [],
+    faqs: [],
+    highlightCards: [],
+    relatedArticleSlugs: []
   }
 ];
 
