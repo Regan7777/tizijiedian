@@ -35,7 +35,7 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
   dalaoyun: {
     id: "dalaoyun",
     name: "大佬云",
-    target: "https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL",
+    target: "https://fugui0077.dalaoyunaff.com/#/?code=Wpfk4XD5",
     redirectPath: "/go/dalaoyun",
     promoCode: "dly888",
     discountText: "季付及以上 7 折"
@@ -58,7 +58,7 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
   shandianshu: {
     id: "shandianshu",
     name: "闪电鼠",
-    target: "https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK",
+    target: "https://fugui0077.shandianshuaff.com/#/?code=KSByEAn9",
     redirectPath: "/go/shandianshu",
     promoCode: "sd88",
     discountText: "首单 7 折"

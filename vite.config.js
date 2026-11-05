@@ -6,10 +6,10 @@ import tailwindcss from '@tailwindcss/vite'
 const AFF_REDIRECT_MAP = {
   '/go/shenxing': 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8',
   '/go/liulianyun': 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN',
-  '/go/dalaoyun': 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL',
+  '/go/dalaoyun': 'https://fugui0077.dalaoyunaff.com/#/?code=Wpfk4XD5',
   '/go/huanqiuti': 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG',
   '/go/yunjiexian': 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
-  '/go/shandianshu': 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
+  '/go/shandianshu': 'https://fugui0077.shandianshuaff.com/#/?code=KSByEAn9',
 };
 
 // 本地开发环境 301 重定向中间件插件
