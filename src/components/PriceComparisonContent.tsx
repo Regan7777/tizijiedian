@@ -43,7 +43,7 @@ export const PriceComparisonContent: React.FC = () => {
     setOpenAccordion(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Top 6 airports detailed pricing & specs data (fully synchronized with in-depth evaluation articles, using 301 redirect paths)
+  // Top 7 airports detailed pricing & specs data (fully synchronized with in-depth evaluation articles, using 302 redirect paths)
   const airportData: AirportPriceItem[] = [
     { 
       name: "神行加速", 
@@ -131,6 +131,21 @@ export const PriceComparisonContent: React.FC = () => {
       oneTime: "不限并发设备、全节点1.0x", 
       hasOneTime: true, 
       reviewSlug: "shandianshu-airport-review", 
+      isSpecialLine: true 
+    },
+    { 
+      name: "光速云", 
+      logo: "/images/guangshuyun-logo.png",
+      url: AFF_LINKS.guangshuyun.redirectPath, 
+      priceNum: 8.25, 
+      priceText: "轻量年付折合8.25元/月(常规25元/月 168GB)", 
+      trafficNum: 69, 
+      trafficText: "69~168 GB", 
+      trial: "年付8折/两年7折/三年6折", 
+      hasTrial: true, 
+      oneTime: "147元/247GB起永久包", 
+      hasOneTime: true, 
+      reviewSlug: "guangshuyun-airport-review", 
       isSpecialLine: true 
     }
   ];

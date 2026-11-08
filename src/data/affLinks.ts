@@ -1,9 +1,9 @@
 /**
- * 梯子节点 - 统一推广与 301 重定向映射管理
+ * 梯子节点 - 统一推广与 302 重定向映射管理
  * 
  * 所有服务商的原始推广链接集中在此处维护，前端统一使用内部短链接 /go/<id>。
- * 线上由 Cloudflare Pages / Netlify 的 _redirects 或 Vercel 的 redirects 实现 HTTP 301 永久重定向，
- * 本地开发环境由 vite.config.js 插件处理 301 响应。
+ * 线上由 Cloudflare Pages / Netlify 的 _redirects 或 Vercel 的 redirects 实现 HTTP 302 临时重定向，
+ * 本地开发环境由 vite.config.js 插件处理 302 响应。
  */
 
 export interface AffLinkItem {
@@ -51,7 +51,7 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
   yunjiexian: {
     id: "yunjiexian",
     name: "云界线",
-    target: "https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW",
+    target: "https://fugui0077.yunjiexianaff.com/#/?code=FVkiFyAx",
     redirectPath: "/go/yunjiexian",
     discountText: "结账立减 7 折"
   },
@@ -62,11 +62,18 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     redirectPath: "/go/shandianshu",
     promoCode: "sd88",
     discountText: "首单 7 折"
+  },
+  guangshuyun: {
+    id: "guangshuyun",
+    name: "光速云",
+    target: "https://j98j.gsyvipaff.com/#/?code=9506F5Sq",
+    redirectPath: "/go/guangshuyun",
+    discountText: "年付99元起/不限设备"
   }
 };
 
 /**
- * 根据机场标识获取其 301 跳转路径
+ * 根据机场标识获取其 302 跳转路径
  */
 export const getAffRedirectUrl = (id: string): string => {
   return AFF_LINKS[id]?.redirectPath || `/go/${id}`;

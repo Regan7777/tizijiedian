@@ -13,6 +13,9 @@ interface GuideDetailPageProps {
 }
 
 export const GuideDetailPage: React.FC<GuideDetailPageProps> = ({ slug = 'top-recommendations' }) => {
+  const { guides, articles, navigateTo } = useApp();
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
   if (slug === 'top-recommendations' || slug === 'recommendations') {
     return <AirportRankingContent />;
   }
@@ -22,9 +25,6 @@ export const GuideDetailPage: React.FC<GuideDetailPageProps> = ({ slug = 'top-re
   if (slug === 'eval-center' || slug === 'evaluations' || slug === 'vpn-airport-reviews') {
     return <EvaluationHubContent />;
   }
-
-  const { guides, articles, navigateTo } = useApp();
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const guide = guides.find(g => g.slug === slug) || guides[0] || ({} as any);
 

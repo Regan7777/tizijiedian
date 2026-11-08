@@ -35,7 +35,7 @@ export const AirportRankingContent: React.FC = () => {
     setOpenAccordion(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Top 6 airports in strict priority order (using 301 redirect paths)
+  // Top 7 airports in strict priority order (using 302 redirect paths)
   const airportList: AirportRow[] = [
     { 
       name: "神行加速", 
@@ -105,6 +105,17 @@ export const AirportRankingContent: React.FC = () => {
       hasOneTime: true, 
       tg: "暂无", 
       reviewSlug: "shandianshu-airport-review" 
+    },
+    { 
+      name: "光速云", 
+      logo: "/images/guangshuyun-logo.png",
+      url: AFF_LINKS.guangshuyun.redirectPath, 
+      trial: "长周期立减优惠（年付8折/两年7折/三年6折）", 
+      price: "25元/月 168GB（轻量年付99元折合8.25元/月）", 
+      oneTime: "✔️147元/247GB起永久不过期流量包", 
+      hasOneTime: true, 
+      tg: "暂无", 
+      reviewSlug: "guangshuyun-airport-review" 
     }
   ];
 
@@ -647,6 +658,40 @@ export const AirportRankingContent: React.FC = () => {
               </button>
               <a 
                 href={AFF_LINKS.shandianshu.redirectPath}
+                target="_blank" 
+                rel="noopener noreferrer nofollow"
+                className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"
+              >
+                <span>直达官网</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card 7: 光速云 */}
+          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4 flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <img src="/images/guangshuyun-logo.png" alt="光速云" className="w-6 h-6 object-contain rounded" />
+                <span className="font-extrabold text-base text-slate-900 dark:text-white">光速云 机场服务评测</span>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                全 IPLC / IEPL 专线架构，单节点最高 2.5Gbps，彻底不限设备并发数量，全节点 1.0x 标准倍率，原生 IP 解锁 Netflix/ChatGPT。
+              </p>
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs space-y-1 font-mono">
+                <div>• 优惠政策：长周期大额折扣（<strong className="text-cyan-600 dark:text-cyan-400">年付8折/两年7折/三年6折</strong>）；永久流量包</div>
+                <div>• 套餐资费：轻量版 99元/年（折合 8.25元/月）；月付 25元/168GB起；永久包 147元/247GB</div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => navigateTo('/blog', { slug: 'guangshuyun-airport-review' })}
+                className="py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs transition-colors text-center cursor-pointer"
+              >
+                查看详细评测
+              </button>
+              <a 
+                href={AFF_LINKS.guangshuyun.redirectPath}
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-1 shadow-xs"

@@ -113,6 +113,18 @@ export const EvaluationHubContent: React.FC = () => {
       reviewSlug: "shandianshu-airport-review",
       tags: ["彻底不限设备", "19.9元起", "优惠码sd88", "1.0x倍率"],
       features: ["首单专属优惠券sd88享7折大额减免", "全套餐彻底不限制并发设备数量", "60个VLESS节点实测可达率95%", "全节点保持真实1.0x倍率不扣量"]
+    },
+    {
+      name: "光速云",
+      logo: "/images/guangshuyun-logo.png",
+      badge: "全专线·不限设备",
+      highlight: "全IPLC/IEPL内网物理专线架构，单节点最高2.5Gbps峰值，彻底不限设备并发，全节点1.0x真实倍率，轻量版年付99元折合8.25元/月",
+      lineType: "全 IPLC/IEPL 物理专线 / VLESS协议",
+      priceDesc: "25元/月 168GB（轻量年付99元）",
+      url: AFF_LINKS.guangshuyun.redirectPath,
+      reviewSlug: "guangshuyun-airport-review",
+      tags: ["全专线", "不限设备数", "年付99元", "8元月均", "永久包"],
+      features: ["全IPLC/IEPL专线单节点峰值2.5Gbps", "全套餐彻底不限客户端在线设备数量", "轻量年付99元（69GB/月，折合8.25元/月）", "提供147元/247GB永久不限时备用包"]
     }
   ];
 

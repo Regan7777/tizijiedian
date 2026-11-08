@@ -28,7 +28,7 @@
 - [🎯 核心使命与价值观](#-核心使命与价值观)
 - [🔬 5 维评测指标体系](#-5-维评测指标体系)
 - [🧩 站点主要内容与板块](#-站点主要内容与板块)
-- [🔗 推广链接 301 重定向规范](#-推广链接-301-重定向规范)
+- [🔗 推广链接 302 重定向规范](#-推广链接-302-重定向规范)
 - [🛠 技术架构与技术栈](#-技术架构与技术栈)
 - [🚀 快速开始与本地运行](#-快速开始与本地运行)
 - [📫 联系作者与交流反馈](#-联系作者与交流反馈)
@@ -84,11 +84,11 @@
    - 免费海外 Apple ID 注册指南与常见充值避坑
 ---
 
-## 🔗 推广链接 301 重定向规范
+## 🔗 推广链接 302 重定向规范
 
-为保护站点权重、统一管理外部服务商推广链接，并杜绝前端代码中直接暴露包含推广参数（如 `?code=xxx`）的生硬外链，全站统一实施 **HTTP 301 永久重定向（Affiliate Cloaking）**：
+为保护站点权重、统一管理外部服务商推广链接，并杜绝前端代码中直接暴露包含推广参数（如 `?code=xxx`）的生硬外链，全站统一实施 **HTTP 302 临时重定向（Affiliate Cloaking）**：
 
-| 服务商 | 站点内 301 重定向路径 | 目标服务类型与协议 |
+| 服务商 | 站点内 302 重定向路径 | 目标服务类型与协议 |
 | :--- | :--- | :--- |
 | **神行加速** | [`/go/shenxing`](https://tizijiedian.com/go/shenxing) | 多入口 BGP + HG 中转专线 / VLESS |
 | **榴莲云** | [`/go/liulianyun`](https://tizijiedian.com/go/liulianyun) | IEPL 内网专线 / VLESS |
@@ -96,12 +96,13 @@
 | **环球梯** | [`/go/huanqiuti`](https://tizijiedian.com/go/huanqiuti) | 纯物理专线 / VLESS |
 | **云界线** | [`/go/yunjiexian`](https://tizijiedian.com/go/yunjiexian) | 全 IPLC 专线动态调度 / VLESS |
 | **闪电鼠** | [`/go/shandianshu`](https://tizijiedian.com/go/shandianshu) | IEPL 专线 / 不限并发设备 / VLESS |
+| **光速云** | [`/go/guangshuyun`](https://tizijiedian.com/go/guangshuyun) | 全 IPLC/IEPL 专线 / 不限设备并发 / VLESS |
 
 - **集中配置文件**：[`src/data/affLinks.ts`](./src/data/affLinks.ts)
 - **多平台部署支持**：
-  - **Cloudflare Pages / Netlify**：通过 [`public/_redirects`](./public/_redirects) 原生返回 `301 Moved Permanently`；
-  - **Vercel**：通过 [`vercel.json`](./vercel.json) 原生配置 301 `redirects`；
-  - **本地开发调试**：在 [`vite.config.js`](./vite.config.js) 中内置中间件插件，本地运行 `npm run dev` 访问 `/go/:id` 亦能自动响应 301 跳转；
+  - **Cloudflare Pages / Netlify**：通过 [`public/_redirects`](./public/_redirects) 原生返回 `302 Found`；
+  - **Vercel**：通过 [`vercel.json`](./vercel.json) 原生配置 302（`permanent: false`）`redirects`；
+  - **本地开发调试**：在 [`vite.config.js`](./vite.config.js) 中内置中间件插件，本地运行 `npm run dev` 访问 `/go/:id` 亦能自动响应 302 跳转；
   - **客户端路由容错**：在 [`src/context/AppContext.tsx`](./src/context/AppContext.tsx) 中注入兜底处理，确保任意场景下均能稳定直达。
 
 ---
