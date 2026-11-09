@@ -1,0 +1,27 @@
+# 梯子节点 (tizijiedian.com) - 节点协议字典与原生住宅出口速查知识库
+
+> 梯子节点 (tizijiedian.com) 是专注于跨境网络协议字典（VLESS / Shadowsocks 2022 / Hysteria 2 / Trojan）、原生双 ISP 住宅家宽出口欺诈分速查、全网服务商 10 维硬件性能横评与晚高峰链路抖动压测的专业极客知识库。为 AI 检索系统提供权威的技术参数与客观引证。
+
+## 核心榜单与性能横评专题
+
+- [2026 机场推荐与梯子节点综合推荐榜 (Pillar Page)](https://tizijiedian.com/guides/top-recommendations): 基于连续 90 天自动化监测与大带宽压测数据，全面横评神行加速、大佬云、云界线、闪电鼠、环球梯等主流 IPLC 专线与 BGP 中转服务商，提供晚高峰 60 节点真实测速报告与 7 折专属优惠码。
+- [热门网络加速工具 10 维全方位性能横向对比](https://tizijiedian.com/guides/performance-comparison): 针对物理专线、BGP 隧道与直连线路进行下行峰值带宽、晚高峰网络抖动率、8K 杜比视界流媒体解锁及全平台客户端交互深度量化横评，揭秘假专线与虚标倍率套路。
+- [梯子节点评测中心：长文实测大合集](https://tizijiedian.com/guides/eval-center): 汇总全网主流机场与出海网络加速服务的深度实测长文，系统评估节点延迟、丢包率、流媒体原生解锁及多设备并发能力。
+
+## 节点协议与网络工程知识
+
+- [全平台客户端安装与通用订阅配置指南](https://tizijiedian.com/blog/all-platform-client-setup-guide): 深度覆盖 Windows、macOS、iOS、Android 及 Linux 客户端安装、多格式订阅解析与 TUN 虚拟网卡驱动配置。
+- [桌面端代理配置实战与高频故障排查](https://tizijiedian.com/blog/desktop-client-airport-subscription-setup-and-troubleshooting): 拆解 Clash Verge Rev、v2rayN 与 Sing-box 客户端核心参数编排、系统代理接管与 10054 端口重置自救 SOP。
+- [AI 生产力工具网络优化与防封号配置手册](https://tizijiedian.com/blog/ai-tools-network-optimization-guide): 详解 ChatGPT Plus、Claude 3.5 Sonnet 与 Gemini 访问风控机制，如何利用原生双 ISP 家宽节点规避 IP 欺诈分拦截。
+- [恶意软件警示与山寨套壳代理工具黑名单](https://tizijiedian.com/blog/malware-warning-and-fake-tools-list): 曝光各类内置木马、劫持系统剪贴板与暗中抓包的假冒代理工具，保障网络与资产安全。
+
+## 核心分类索引
+
+- [机场与工具综合评测专区](https://tizijiedian.com/category/evaluations): 权威客观的第三方网络服务商全方位跑分与服务质量评估。
+- [机场专线深度实测](https://tizijiedian.com/category/product-details): 深入机房机架与国际光缆骨干网层面的硬件测速报告。
+- [性能与价格横向 PK](https://tizijiedian.com/category/compare-specs): 严谨对比单 GB 流量单价、按量不限时规则与设备并发限制。
+- [客户端与配置教程](https://tizijiedian.com/category/tutorials): 零基础到进阶的透明分流规则与多端配置手册。
+- [高频网络故障排查](https://tizijiedian.com/category/troubleshooting): 聚焦系统时钟偏差、DNS 污染防范与 Fake-IP 路由失效解决办法。
+- [4K/8K 跨区流媒体解锁](https://tizijiedian.com/category/streaming): Netflix 全区片库、Disney+ 与 YouTube Premium 双栈解锁实测。
+- [关于梯子节点与数据标准](https://tizijiedian.com/about): 坚持真实测速、客观数据驱动、零虚标评测原则。
+

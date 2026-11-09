@@ -119,14 +119,15 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function renderHtmlPage({ route, title, description, canonicalUrl, ogType = 'website', publishDate, updateDate, bodySnippet = '' }) {
+function renderHtmlPage({ route, title, description, keywords = '', canonicalUrl, ogType = 'website', publishDate, updateDate, bodySnippet = '' }) {
   let html = baseHtml;
 
   // Replace Title
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
 
-  // Replace Meta Description
-  html = html.replace(/<meta name="description" content="[\s\S]*?" \/>/i, `<meta name="description" content="${description}" />`);
+  // Replace Meta Description & Keywords
+  const keywordsTag = keywords ? `<meta name="keywords" content="${keywords}" />\n    ` : '';
+  html = html.replace(/<meta name="description" content="[\s\S]*?" \/>/i, `${keywordsTag}<meta name="description" content="${description}" />`);
 
   // Replace Canonical Link
   html = html.replace(/<link rel="canonical" href="[\s\S]*?" \/>/i, `<link rel="canonical" href="${canonicalUrl}" />`);
@@ -244,6 +245,7 @@ for (const page of staticPages) {
     route: page.route,
     title: page.title,
     description: page.description,
+    keywords: '梯子节点, 2026机场推荐, 科学上网, 翻墙梯子, IPLC专线, 节点测速, 机场评测, 节点排行榜',
     canonicalUrl,
     bodySnippet: body
   });
@@ -271,6 +273,7 @@ for (const g of guides) {
     route,
     title: fullTitle,
     description: g.description,
+    keywords: `${g.title}, 机场选型指南, 梯子节点, 科学上网, 专线测速`,
     canonicalUrl,
     bodySnippet: body
   });
@@ -311,6 +314,7 @@ for (const [slug, name] of Object.entries(categoryMap)) {
     route,
     title: fullTitle,
     description: desc,
+    keywords: `${name}, 梯子节点, 机场评测, 科学上网教程, 节点配置`,
     canonicalUrl,
     bodySnippet: body
   });
@@ -345,6 +349,7 @@ for (const art of articles) {
     route,
     title: fullTitle,
     description: art.excerpt,
+    keywords: (art.tags && art.tags.length > 0 ? art.tags.join(', ') : `${art.title}, 科学上网, 机场推荐`),
     canonicalUrl,
     ogType: 'article',
     publishDate: art.publishDate,
