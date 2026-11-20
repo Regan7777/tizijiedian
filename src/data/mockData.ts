@@ -82,7 +82,7 @@ export const articlesData: Article[] = [
     id: "art-desktop-tutorial-and-troubleshooting",
     title: "电脑客户端本地使用机场与订阅链接保姆级教程：从导入配置到常见故障排错全指南",
     slug: "desktop-client-airport-subscription-setup-and-troubleshooting",
-    excerpt: "2026 年翻墙机场推荐排行榜：深度实测神行加速、榴莲云、大佬云、环球梯、云界线、闪电鼠等优质中转与 IEPL/IPLC 专线机场，全面公开套餐价格、7折专属优惠码与晚高峰 60 节点吞吐带宽及延迟真实数据，拒绝任何商业充钱篡改评分，助你一目了然选出最省钱、最稳定、高性价比的科学上网加速首选高分方案。",
+    excerpt: "2026 桌面电脑客户端订阅与配置使用全指南：系统性剖析 Windows 与 macOS 环境下 Clash Verge Rev、v2rayN 与 Sing-box 订阅导入、TUN 模式虚拟网卡驱动接管、DNS 防污染配置与 10054 连通性排错方案，手把手带你建立稳定高可用的本地代理网络环境。",
     coverImage: "/images/client-setup-cover.jpg",
     categoryId: "tutorials",
     subcategoryId: "tut-devices",

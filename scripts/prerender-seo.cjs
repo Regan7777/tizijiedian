@@ -14,28 +14,53 @@ const baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
 // Load mockData and additionalArticles
 const mockDataText = fs.readFileSync(path.join(__dirname, '../src/data/mockData.ts'), 'utf8');
+const mockArticlesText = mockDataText.split('export const guidesData')[0];
 const addDataText = fs.readFileSync(path.join(__dirname, '../src/data/additionalArticles.ts'), 'utf8');
-const allDataText = mockDataText + '\n' + addDataText;
+const allDataText = mockArticlesText + '\n' + addDataText;
 
 // Extract articles
 function extractArticles(text) {
   const articles = [];
-  const regex = /{\s*id:\s*["']([^"']+)["'][\s\S]*?title:\s*["']([^"']+)["'][\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?excerpt:\s*["']([^"']+)["'][\s\S]*?(?:publishDate:\s*["']([^"']+)["'])?[\s\S]*?(?:updateDate:\s*["']([^"']+)["'])?[\s\S]*?content:\s*`([\s\S]*?)`/g;
-  let m;
   const seen = new Set();
-  while ((m = regex.exec(text)) !== null) {
-    const slug = m[3];
-    if (!seen.has(slug)) {
-      seen.add(slug);
-      articles.push({
-        id: m[1],
-        title: m[2],
-        slug: m[3],
-        excerpt: m[4],
-        publishDate: m[5] || '2026-10-10',
-        updateDate: m[6] || m[5] || '2026-10-10',
-        content: m[7] || ''
-      });
+  
+  const idRegex = /{\s*id:\s*["'](art-[^"']+)["']/g;
+  let match;
+  const indices = [];
+  while ((match = idRegex.exec(text)) !== null) {
+    indices.push(match.index);
+  }
+
+  for (let i = 0; i < indices.length; i++) {
+    const start = indices[i];
+    const end = (i + 1 < indices.length) ? indices[i + 1] : text.length;
+    const block = text.slice(start, end);
+
+    const idMatch = block.match(/id:\s*["']([^"']+)["']/);
+    const titleMatch = block.match(/title:\s*["']([^"']+)["']/);
+    const slugMatch = block.match(/slug:\s*["']([^"']+)["']/);
+    const excerptMatch = block.match(/excerpt:\s*["']([^"']+)["']/);
+    const catMatch = block.match(/categoryId:\s*["']([^"']+)["']/);
+    const subMatch = block.match(/subcategoryId:\s*["']([^"']+)["']/);
+    const pubMatch = block.match(/publishDate:\s*["']([^"']+)["']/);
+    const updMatch = block.match(/updateDate:\s*["']([^"']+)["']/);
+    const contentMatch = block.match(/content:\s*`([\s\S]*?)`/);
+
+    if (slugMatch && titleMatch && excerptMatch) {
+      const slug = slugMatch[1];
+      if (!seen.has(slug)) {
+        seen.add(slug);
+        articles.push({
+          id: idMatch ? idMatch[1] : '',
+          title: titleMatch[1],
+          slug: slug,
+          excerpt: excerptMatch[1],
+          categoryId: catMatch ? catMatch[1] : '',
+          subcategoryId: subMatch ? subMatch[1] : '',
+          publishDate: pubMatch ? pubMatch[1] : '2026-10-10',
+          updateDate: updMatch ? updMatch[1] : (pubMatch ? pubMatch[1] : '2026-10-10'),
+          content: contentMatch ? contentMatch[1] : ''
+        });
+      }
     }
   }
   return articles;
@@ -297,17 +322,105 @@ function getCategoryDescription(name) {
 }
 
 // 3. Categories
+const subcategoryToSlug = {
+  'eval-details': 'product-details',
+  'eval-latest': 'latest-reviews',
+  'eval-compare': 'compare-specs',
+  'tut-beginner': 'getting-started',
+  'tut-tools': 'tool-guides',
+  'tut-devices': 'device-setup',
+  'tut-faq': 'troubleshooting',
+  'tut-privacy': 'privacy-security',
+  'news-risks': 'risk-warnings',
+  'news-trends': 'industry-news',
+  'scen-ai': 'ai-tools',
+  'scen-streaming': 'streaming',
+  'scen-crossborder': 'cross-border-office',
+  'ann-logs': 'changelogs'
+};
+
+const slugToParentCategory = {
+  'evaluations': 'evaluations',
+  'product-details': 'evaluations',
+  'latest-reviews': 'evaluations',
+  'compare-specs': 'evaluations',
+  'tutorials': 'tutorials',
+  'getting-started': 'tutorials',
+  'tool-guides': 'tutorials',
+  'device-setup': 'tutorials',
+  'troubleshooting': 'tutorials',
+  'privacy-security': 'tutorials',
+  'news': 'news',
+  'risk-warnings': 'news',
+  'industry-news': 'news',
+  'scenarios': 'scenarios',
+  'ai-tools': 'scenarios',
+  'streaming': 'scenarios',
+  'cross-border-office': 'scenarios',
+  'announcements': 'announcements',
+  'changelogs': 'announcements'
+};
+
 for (const [slug, name] of Object.entries(categoryMap)) {
   const route = `/category/${slug}`;
   const canonicalUrl = `${DOMAIN}${route}`;
   const fullTitle = `${name} | 梯子节点知识库`;
   const desc = getCategoryDescription(name);
 
+  // Filter matching articles for this category
+  let matchingArticles = articles.filter(art => {
+    if (subcategoryToSlug[art.subcategoryId] === slug) return true;
+    if (art.categoryId === slug) return true;
+    return false;
+  });
+
+  // Supplement if fewer than 2
+  const parentCat = slugToParentCategory[slug];
+  if (matchingArticles.length < 2 && parentCat) {
+    const parentArticles = articles.filter(art => art.categoryId === parentCat);
+    for (const art of parentArticles) {
+      if (!matchingArticles.find(m => m.slug === art.slug)) {
+        matchingArticles.push(art);
+      }
+      if (matchingArticles.length >= 4) break;
+    }
+  }
+
+  // Fallback if still fewer than 2
+  if (matchingArticles.length < 2) {
+    for (const art of articles) {
+      if (!matchingArticles.find(m => m.slug === art.slug)) {
+        matchingArticles.push(art);
+      }
+      if (matchingArticles.length >= 4) break;
+    }
+  }
+
+  const articleCardsHtml = matchingArticles.map(art => `          <article class="p-6 bg-white rounded-2xl border border-slate-200/80 hover:border-indigo-300 hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold text-indigo-600 mb-2">${escapeHtml(name)}</div>
+              <h2 class="text-lg font-bold text-slate-900 mb-2 hover:text-indigo-600 transition-colors">
+                <a href="/blog/${art.slug}">${escapeHtml(art.title)}</a>
+              </h2>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-3">${escapeHtml(art.excerpt)}</p>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-100 mt-2">
+              <span>更新时间：${art.updateDate}</span>
+              <a href="/blog/${art.slug}" class="text-indigo-600 font-medium hover:underline inline-flex items-center gap-1">
+                阅读全文 &rarr;
+              </a>
+            </div>
+          </article>`).join('\n');
+
   const body = `      <section class="max-w-5xl mx-auto px-4 pt-12 pb-16">
         <nav class="text-xs text-slate-500 mb-6"><a href="/">首页</a> &gt; <a href="/blog/categories">分类专区</a> &gt; <span>${escapeHtml(name)}</span></nav>
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">${escapeHtml(name)}</h1>
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">${escapeHtml(desc)}</p>
-        <div class="p-6 bg-slate-100 rounded-2xl text-slate-700 text-sm">正在加载该专区文章列表与技术资源...</div>
+        <header class="mb-10 pb-6 border-b border-slate-200">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">${escapeHtml(name)}</h1>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">${escapeHtml(desc)}</p>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+${articleCardsHtml}
+        </div>
       </section>`;
 
   const rendered = renderHtmlPage({

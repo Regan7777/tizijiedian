@@ -4,8 +4,9 @@ const path = require('path');
 const DOMAIN = 'https://tizijiedian.com';
 
 const mockData = fs.readFileSync(path.join(__dirname, '../src/data/mockData.ts'), 'utf8');
+const mockArticlesText = mockData.split('export const guidesData')[0];
 const addData = fs.readFileSync(path.join(__dirname, '../src/data/additionalArticles.ts'), 'utf8');
-const allText = mockData + '\n' + addData;
+const allText = mockArticlesText + '\n' + addData;
 
 function extractArticles(text) {
   const articles = [];
@@ -119,4 +120,5 @@ if (!fs.existsSync(publicDir)) {
 }
 
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xml, 'utf8');
-console.log(`Successfully generated sitemap.xml with ${staticPages.length + guides.length + categories.length + articles.length} URLs.`);
+fs.writeFileSync(path.join(publicDir, 'sitemap-0.xml'), xml, 'utf8');
+console.log(`Successfully generated sitemap.xml and sitemap-0.xml with ${staticPages.length + guides.length + categories.length + articles.length} URLs.`);

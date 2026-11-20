@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /go/
 
 Sitemap: https://tizijiedian.com/sitemap.xml
+Sitemap: https://tizijiedian.com/sitemap-0.xml
