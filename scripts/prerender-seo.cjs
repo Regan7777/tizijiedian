@@ -246,6 +246,14 @@ function writePageFile(subPath, htmlContent) {
     fs.mkdirSync(targetDir, { recursive: true });
   }
   fs.writeFileSync(path.join(targetDir, 'index.html'), htmlContent, 'utf8');
+
+  // Also write subPath.html for cleanUrls compatibility
+  const htmlFile = path.join(distDir, `${subPath}.html`);
+  const parentDir = path.dirname(htmlFile);
+  if (!fs.existsSync(parentDir)) {
+    fs.mkdirSync(parentDir, { recursive: true });
+  }
+  fs.writeFileSync(htmlFile, htmlContent, 'utf8');
 }
 
 // 1. Core static pages

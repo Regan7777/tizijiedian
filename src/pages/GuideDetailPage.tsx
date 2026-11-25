@@ -16,17 +16,19 @@ export const GuideDetailPage: React.FC<GuideDetailPageProps> = ({ slug = 'top-re
   const { guides, articles, navigateTo } = useApp();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  if (slug === 'top-recommendations' || slug === 'recommendations') {
+  const cleanSlug = (slug || 'top-recommendations').replace(/\/+$/, '');
+
+  if (cleanSlug === 'top-recommendations' || cleanSlug === 'recommendations') {
     return <AirportRankingContent />;
   }
-  if (slug === 'performance-comparison' || slug === 'jichangpk' || slug === 'price-comparison') {
+  if (cleanSlug === 'performance-comparison' || cleanSlug === 'jichangpk' || cleanSlug === 'price-comparison') {
     return <PriceComparisonContent />;
   }
-  if (slug === 'eval-center' || slug === 'evaluations' || slug === 'vpn-airport-reviews') {
+  if (cleanSlug === 'eval-center' || cleanSlug === 'evaluations' || cleanSlug === 'vpn-airport-reviews') {
     return <EvaluationHubContent />;
   }
 
-  const guide = guides.find(g => g.slug === slug) || guides[0] || ({} as any);
+  const guide = guides.find(g => g.slug === cleanSlug) || guides[0] || ({} as any);
 
   // Get related articles
   const relatedArticles = articles.filter(a => guide?.relatedArticleSlugs?.includes(a.slug));

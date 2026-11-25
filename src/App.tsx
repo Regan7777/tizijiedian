@@ -13,7 +13,7 @@ import { AboutPage } from './pages/AboutPage';
 import { AdminPage } from './pages/AdminPage';
 
 const MainLayout: React.FC = () => {
-  const { currentRoute, articles, guides } = useApp();
+  const { currentRoute, articles, guides, categories } = useApp();
 
   React.useEffect(() => {
     let title = "梯子节点 | 独立·客观·数据驱动的科技工具与网络服务评测指南";
@@ -29,7 +29,7 @@ const MainLayout: React.FC = () => {
       desc = "梯子节点全部分类与专题指南导航中心：系统梳理深度评测、实操教程、行业资讯、应用场景与网站公告等五大核心内容板块。无论您是零基础新手快速入门、查找海外跨境电商出海网络综合解决方案，还是对比不同线路协议性能，都能在此快速找到结构清晰、客观透明且数据翔实的高质量技术指南与实测数据，助您轻松实现精准选型决策。";
       canonical = "https://tizijiedian.com/blog/categories";
     } else if (currentRoute.path === '/guides') {
-      const gSlug = currentRoute.params?.slug || 'top-recommendations';
+      const gSlug = (currentRoute.params?.slug || 'top-recommendations').replace(/\/+$/, '');
       const guide = guides.find(g => g.slug === gSlug);
       if (guide) {
         title = `${guide.title} | 梯子节点`;
@@ -37,13 +37,29 @@ const MainLayout: React.FC = () => {
       }
       canonical = `https://tizijiedian.com/guides/${gSlug}`;
     } else if (currentRoute.path === '/category') {
-      const cSlug = currentRoute.params?.slug;
-      title = "分类专区 | 梯子节点知识库";
+      const cSlug = (currentRoute.params?.slug || '').replace(/\/+$/, '');
+      let catName = '分类专区';
+      let catDesc = '梯子节点分类专区：精选收录各大类目专业实测评测与配置教程，助您快速定位所需的网络工具知识。';
       if (cSlug) {
+        for (const cat of categories) {
+          if (cat.slug === cSlug) {
+            catName = cat.name;
+            catDesc = `${cat.name}专区：${cat.description}。梯子节点为您提供真实客观的实测数据与深度指南。`;
+            break;
+          }
+          const sub = cat.subcategories?.find(s => s.slug === cSlug);
+          if (sub) {
+            catName = sub.name;
+            catDesc = `${sub.name}专题：${sub.description}。梯子节点为您提供详尽的图文教程与技术测评。`;
+            break;
+          }
+        }
         canonical = `https://tizijiedian.com/category/${cSlug}`;
       }
+      title = `${catName} | 梯子节点知识库`;
+      desc = catDesc;
     } else if (currentRoute.path === '/blog') {
-      const aSlug = currentRoute.params?.slug;
+      const aSlug = (currentRoute.params?.slug || '').replace(/\/+$/, '');
       if (aSlug) {
         const art = articles.find(a => a.slug === aSlug);
         if (art) {

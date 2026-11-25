@@ -33,7 +33,8 @@ const parseHashRoute = (rawHash: string): { path: string; params?: Record<string
   }
   if (!target || target === '/') return { path: '/' };
 
-  const [pathWithSlug, queryString] = target.split('?');
+  const [rawPathWithSlug, queryString] = target.split('?');
+  const pathWithSlug = rawPathWithSlug.replace(/\/+$/, '') || '/';
   const queryParams: Record<string, string> = {};
   if (queryString) {
     const searchParams = new URLSearchParams(queryString);
@@ -44,7 +45,7 @@ const parseHashRoute = (rawHash: string): { path: string; params?: Record<string
 
   // Handle /go/ AFF redirect fallback in SPA
   if (pathWithSlug.startsWith('/go/')) {
-    const id = pathWithSlug.replace('/go/', '');
+    const id = pathWithSlug.replace('/go/', '').replace(/\/+$/, '');
     const affTarget = getAffTargetUrl(id);
     if (affTarget && typeof window !== 'undefined') {
       window.location.replace(affTarget);
@@ -52,20 +53,11 @@ const parseHashRoute = (rawHash: string): { path: string; params?: Record<string
     }
   }
 
-  if (pathWithSlug.startsWith('/blog/categories')) {
+  if (pathWithSlug === '/blog/categories') {
     return { path: '/blog/categories', params: queryParams };
   }
-  if (pathWithSlug.startsWith('/category/')) {
-    const slug = pathWithSlug.replace('/category/', '');
-    return { path: '/category', params: { ...queryParams, slug } };
-  }
-  if (pathWithSlug.startsWith('/guides/')) {
-    const slug = pathWithSlug.replace('/guides/', '');
-    return { path: '/guides', params: { ...queryParams, slug } };
-  }
-  if (pathWithSlug.startsWith('/blog/')) {
-    const slug = pathWithSlug.replace('/blog/', '');
-    return { path: '/blog', params: { ...queryParams, slug } };
+  if (pathWithSlug === '/about') {
+    return { path: '/about', params: queryParams };
   }
   if (pathWithSlug === '/blog') {
     return { path: '/blog', params: queryParams };
@@ -73,12 +65,23 @@ const parseHashRoute = (rawHash: string): { path: string; params?: Record<string
   if (pathWithSlug === '/category') {
     return { path: '/category', params: queryParams };
   }
-  if (pathWithSlug === '/about') {
-    return { path: '/about', params: queryParams };
-  }
   if (pathWithSlug === '/admin') {
     return { path: '/admin', params: queryParams };
   }
+
+  if (pathWithSlug.startsWith('/category/')) {
+    const slug = pathWithSlug.replace('/category/', '').replace(/\/+$/, '');
+    return { path: '/category', params: { ...queryParams, slug } };
+  }
+  if (pathWithSlug.startsWith('/guides/')) {
+    const slug = pathWithSlug.replace('/guides/', '').replace(/\/+$/, '');
+    return { path: '/guides', params: { ...queryParams, slug } };
+  }
+  if (pathWithSlug.startsWith('/blog/')) {
+    const slug = pathWithSlug.replace('/blog/', '').replace(/\/+$/, '');
+    return { path: '/blog', params: { ...queryParams, slug } };
+  }
+
   return { path: '/', params: queryParams };
 };
 

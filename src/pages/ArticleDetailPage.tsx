@@ -253,9 +253,11 @@ export const ArticleDetailPage: React.FC<ArticleDetailPageProps> = ({ slug = 'to
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeHeadingId, setActiveHeadingId] = useState<string>('section-1');
 
-  const article = articles.find(a => a.slug === slug) 
-    || articlesData.find(a => a.slug === slug) 
-    || (slug.includes('ai-tools') ? (articles.find(a => a.id === 'art-3') || articlesData.find(a => a.id === 'art-3')) : null)
+  const cleanSlug = (slug || '').replace(/\/+$/, '');
+
+  const article = articles.find(a => a.slug === cleanSlug) 
+    || articlesData.find(a => a.slug === cleanSlug) 
+    || (cleanSlug.includes('ai-tools') ? (articles.find(a => a.id === 'art-3') || articlesData.find(a => a.id === 'art-3')) : null)
     || articles[0] 
     || articlesData[0];
 

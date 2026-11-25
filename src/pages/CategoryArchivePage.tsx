@@ -9,9 +9,10 @@ interface CategoryArchivePageProps {
 
 export const CategoryArchivePage: React.FC<CategoryArchivePageProps> = ({ slug = 'evaluations' }) => {
   const { categories, articles, navigateTo, currentRoute, setIsSearchOpen, setSearchQuery } = useApp();
+  const cleanSlug = (slug || 'evaluations').replace(/\/+$/, '');
   const pageSize = 4;
-  const isAll = slug === 'all' || slug === 'blog';
-  const storageKey = `archive_page_${slug || 'all'}`;
+  const isAll = cleanSlug === 'all' || cleanSlug === 'blog';
+  const storageKey = `archive_page_${cleanSlug || 'all'}`;
 
   // Read initial page from URL query param, then sessionStorage, default to 1
   const [currentPage, setCurrentPage] = useState<number>(() => {
@@ -48,15 +49,15 @@ export const CategoryArchivePage: React.FC<CategoryArchivePageProps> = ({ slug =
       }
     }
     setCurrentPage(1);
-  }, [slug, currentRoute.params?.page]);
+  }, [cleanSlug, currentRoute.params?.page]);
 
   // Find target category or subcategory matching the slug
-  let currentCat = isAll ? undefined : categories.find(c => c.slug === slug);
+  let currentCat = isAll ? undefined : categories.find(c => c.slug === cleanSlug);
   let currentSubCat = undefined;
 
   if (!isAll && !currentCat) {
     for (const cat of categories) {
-      const foundSub = cat.subcategories.find(s => s.slug === slug);
+      const foundSub = cat.subcategories.find(s => s.slug === cleanSlug);
       if (foundSub) {
         currentCat = cat;
         currentSubCat = foundSub;
