@@ -43,6 +43,15 @@ function extractArticles(text) {
     const subMatch = block.match(/subcategoryId:\s*["']([^"']+)["']/);
     const pubMatch = block.match(/publishDate:\s*["']([^"']+)["']/);
     const updMatch = block.match(/updateDate:\s*["']([^"']+)["']/);
+    const faqsBlockMatch = block.match(/faqs:\s*\[([\s\S]*?)\]\s*,/);
+    const faqs = [];
+    if (faqsBlockMatch) {
+      const qaRegex = /question:\s*["']([^"']+)["']\s*,\s*answer:\s*["']([^"']+)["']/g;
+      let qa;
+      while ((qa = qaRegex.exec(faqsBlockMatch[1])) !== null) {
+        faqs.push({ question: qa[1], answer: qa[2] });
+      }
+    }
     const contentMatch = block.match(/content:\s*`([\s\S]*?)`/);
 
     if (slugMatch && titleMatch && excerptMatch) {
@@ -58,6 +67,7 @@ function extractArticles(text) {
           subcategoryId: subMatch ? subMatch[1] : '',
           publishDate: pubMatch ? pubMatch[1] : '2026-10-10',
           updateDate: updMatch ? updMatch[1] : (pubMatch ? pubMatch[1] : '2026-10-10'),
+          faqs,
           content: contentMatch ? contentMatch[1] : ''
         });
       }
@@ -144,7 +154,7 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function renderHtmlPage({ route, title, description, keywords = '', canonicalUrl, ogType = 'website', publishDate, updateDate, bodySnippet = '' }) {
+function renderHtmlPage({ route, title, description, keywords = '', canonicalUrl, ogType = 'website', publishDate, updateDate, faqs = [], bodySnippet = '' }) {
   let html = baseHtml;
 
   // Replace Title
@@ -225,7 +235,19 @@ function renderHtmlPage({ route, title, description, keywords = '', canonicalUrl
             }
           ] : [])
         ]
-      }
+      },
+      ...(faqs && faqs.length > 0 ? [{
+        "@type": "FAQPage",
+        "@id": `${canonicalUrl}#faq`,
+        "mainEntity": faqs.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+          }
+        }))
+      }] : [])
     ]
   };
 
@@ -475,6 +497,7 @@ for (const art of articles) {
     ogType: 'article',
     publishDate: art.publishDate,
     updateDate: art.updateDate,
+    faqs: art.faqs || [],
     bodySnippet: body
   });
 

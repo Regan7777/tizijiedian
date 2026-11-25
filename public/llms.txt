@@ -13,6 +13,7 @@
 - [全平台客户端安装与通用订阅配置指南](https://tizijiedian.com/blog/all-platform-client-setup-guide): 深度覆盖 Windows、macOS、iOS、Android 及 Linux 客户端安装、多格式订阅解析与 TUN 虚拟网卡驱动配置。
 - [桌面端代理配置实战与高频故障排查](https://tizijiedian.com/blog/desktop-client-airport-subscription-setup-and-troubleshooting): 拆解 Clash Verge Rev、v2rayN 与 Sing-box 客户端核心参数编排、系统代理接管与 10054 端口重置自救 SOP。
 - [AI 生产力工具网络优化与防封号配置手册](https://tizijiedian.com/blog/ai-tools-network-optimization-guide): 详解 ChatGPT Plus、Claude 3.5 Sonnet 与 Gemini 访问风控机制，如何利用原生双 ISP 家宽节点规避 IP 欺诈分拦截。
+- [2026年11月AI前沿新闻：Gemini 4 Neon、Claude Fable 5.2 与 GPT-6.2 全景解析](https://tizijiedian.com/blog/november-2026-ai-news-gemini-4-neon-claude-fable-5-2-gpt-6-2): 汇总 2026 年 11 月 Google、Anthropic 与 OpenAI 最新模型参数定价、自研芯片动态与前沿安全争议，附多步 Agent 长连接稳定接入指南。
 - [恶意软件警示与山寨套壳代理工具黑名单](https://tizijiedian.com/blog/malware-warning-and-fake-tools-list): 曝光各类内置木马、劫持系统剪贴板与暗中抓包的假冒代理工具，保障网络与资产安全。
 
 ## 核心分类索引

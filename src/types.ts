@@ -43,6 +43,7 @@ export interface Article {
   seoDescription?: string;
   hasAffiliateDisclosure?: boolean;
   relatedArticleIds?: string[];
+  faqs?: { question: string; answer: string }[];
 }
 
 export interface ComparisonRow {
